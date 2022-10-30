@@ -52,7 +52,7 @@ main {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: hidden; /* Enable scroll if needed */
+    overflow: hidden; 
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
@@ -135,4 +135,32 @@ main {
 
 #chattr:hover {
     transform: scale(1.05) rotate(-45deg);
+}
+
+@media only screen and (max-width: 946px) {
+    #createroom, 
+    #joinroom {
+        width: 50vw;
+    }
+
+    .modal-content {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        font-size: 2em;
+
+        margin: 150vw auto;
+    }
+
+    .inputbox {
+        width: 80vw;
+        height: 8vh;
+        font-size: 0.8em;
+    }
+
+    #joinroombtn {
+        width: 80vw;
+        height: 15vw;
+        margin: 0.5em;
+    }
 }
