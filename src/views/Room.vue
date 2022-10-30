@@ -13,6 +13,14 @@ export default {
         }
     },
 
+    methods: {
+        goHome() {
+            this.$router.push({
+                name: 'home'
+            })
+        }
+    },
+
     created() {
         const dbRef = ref(db);
         const roomRef = child(dbRef, `rooms/${this.roomKey}`)
@@ -47,7 +55,7 @@ export default {
 
 <template>
     <div class="container">
-        <img id="chattr" src="../assets/chattr.png" alt="" />
+        <img id="chattr" src="../assets/chattr.png" alt="" @click="goHome"/>
         <div class="app">
             <h1>Room code: <span class="accent">{{ this.roomKey }}</span></h1>
             <p v-if="isReady">

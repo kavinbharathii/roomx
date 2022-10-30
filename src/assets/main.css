@@ -143,6 +143,11 @@ main {
         width: 50vw;
     }
 
+    #chattr {
+        width: 10vw;
+        height: 10vw;
+    }
+
     .modal-content {
         width: 90vw;
         display: flex;
