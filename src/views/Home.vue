@@ -26,8 +26,9 @@ export default {
 			if (this.roomKey == '') {
 				console.log("Key empty")
 			} else {
+				this.roomKey = this.roomKey.toUpperCase()
 				console.log(`Room key: ${this.roomKey}`)
-				
+
 				// data base query
 				const dbRef = ref(db);
 				console.log(`checking id: ${this.roomKey}`)
