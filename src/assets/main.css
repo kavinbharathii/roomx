@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body,
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #101010;
+    position: relative;
+}
+
+.container {
+    color: #ddd;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10vh;
+    margin: auto;
+    min-height: 100vh;
+    min-width: 100vw;
+
+    font-size: 1.2em;
+    color: #ddd;
+
+    /* polka dots effect */
+    background: radial-gradient(
+        rgba(255, 255, 255, 0.2) 4%,
+        transparent 8%
+    );
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    
+}
+/* The Modal (background) */
+.modal {
+   /* Hidden by default */
+    /* display: none; */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    display: flex;
+    align-items: center;
+    background-color: #393a42;
+    margin: 35vw auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: fit-content; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    color: #ddd;
+}
+
+.inputbox {
+    background: none;
+    border: 2px solid #9462f9;
+    border-radius: 5px;
+    height: 5vw;
+    padding: 1px 10px;
+    color: #ddd;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.inputbox:focus,
+.inputbox:active {
+    outline: none;
+}
+
+#createroom, #joinroom {
+    background: #111111;
+    border: 3px solid #9462f9;
+    border-radius: 5px;
+    width: 11vw;
+    text-align: center;
+    padding: 0.8em;
+    color: #ddd;
+    font-weight: 999;
+    cursor: pointer;
+    transition: transform, font-weight;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+}
+
+#createroom:hover,
+#joinroom:hover {
+    transform: scale(1.04);
+    font-weight: 999;
+}
+
+#joinroombtn {
+    background: #9462f9;
+    color: white;
+    font-size: 2rem;
+    font-weight: 999;
+    text-transform: uppercase;
+    height: 5vw;
+    width: 10vw;
+    margin: 0px 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+#chattr {
+    position: absolute;
+    width: 3vw;
+    height: 3vw;    
+    color: rgb(227, 201, 255);
+    z-index: 3;
+    top: 0;
+    left: 0;
+    margin: 2em;
+    transition: transform;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+}
+
+#chattr:hover {
+    transform: scale(1.05) rotate(-45deg);
+}
