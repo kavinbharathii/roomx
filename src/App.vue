@@ -16,6 +16,12 @@ export default {
 </script>
 
 <template>
+
+<!-- TODO: join room after creation -->
+<!-- TODO: player can play only if it is their turn -->
+<!-- TODO: pass room/player data and board data to Board component -->
+<!-- TODO: add game logic -->
+<!-- TODO: add user streak -->
 <router-view />
 </template>
 

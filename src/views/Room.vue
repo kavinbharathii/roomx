@@ -2,9 +2,13 @@
 <script>
 import { ref, get, child, onChildChanged } from "firebase/database"
 import { db } from '../main'
+import Board from "../components/Board.vue"
 
 export default {
     name: 'Room',
+    components: {
+        Board
+    },
     data() {
         return {
             roomKey: this.$route.params.roomKey,
@@ -59,15 +63,13 @@ export default {
         <div class="app">
             <h1>Room code: <span class="accent">{{ this.roomKey }}</span></h1>
             <p v-if="isReady">
-                {{ players }}
-                <p v-for="player in players">
-                    {{ player }}
-                </p>
+                <Board />
             </p>
             <p v-else>Waiting...</p>
         </div>
     </div>
 </template>
+
 
 <style scoped>
 .accent {
