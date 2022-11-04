@@ -12,9 +12,9 @@ export default {
 			playerId: '',
 			roomKey: '',
 			promptOpen: false,
-			signedIn: false
 		}
 	},
+	
 	methods: {
 		togglePrompt() {
 			this.promptOpen = !this.promptOpen
@@ -44,7 +44,6 @@ export default {
 
 							// go thru all the players and check if they are already registered
 							for (let player of playerData) {       
-								console.log(player)
 								if (player == this.playerId) {
 									playerAllowed = true
 								}
@@ -124,7 +123,6 @@ export default {
 			signInAnonymously(auth)
 				.then(() => {
 					console.log("Signed In successfully")
-					this.signedIn = true
 				})
 				.catch((error) => {
 					const errorMessage = error.message
@@ -136,7 +134,6 @@ export default {
 				if (user) {
 					// User is signed in...
 					this.playerId = user.uid;
-					// console.log(this.playerId)
 				} else {
 					// User is signed out...
 				}
@@ -156,7 +153,6 @@ export default {
 
 		createRoomKey() {
 			this.roomKey = this.generateRandomKey(6)
-			console.log(this.roomKey)
 
 			set(ref(db, `rooms/${this.roomKey}`), {
 				id: this.roomKey,

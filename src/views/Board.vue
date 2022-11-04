@@ -8,11 +8,13 @@ export default {
     data() {
         return {
             roomKey: this.$route.params.roomKey,
-            boardSpots: [],
+            boardSpots: [[false, false, false], [false, false, false], [false, false, false]],
             playerTurn: 0,
             playable: true,
             boardSize: [0, 1, 2],
-            boardPlayers: []
+            boardPlayers: [],
+            playerX: '',
+            playerO: ''
         }
     },
 
@@ -73,7 +75,9 @@ export default {
                 let roomsData = snapshot.val()
                 this.boardSpots = roomsData['board']
                 this.boardPlayers = roomsData['players']
-                console.table(this.boardSpots)
+                this.playerX = roomsData['playerX']
+                this.playerO = roomsData['playerO']
+
             } else {
                 console.log("No such room")
             }
@@ -83,6 +87,7 @@ export default {
 
         onChildChanged(roomRef, (snapshot) => {
             this.isReady = true
+            // updating the boardspots values
             this.boardSpots = snapshot.val() 
 
             console.table(this.boardSpots)
@@ -99,7 +104,10 @@ export default {
         <div class="app">
             <div id="board">
                 <div v-for="row in boardSize" class="row">
-                    <div v-for="col in boardSize" :class="(boardSpots[row][col] != 0) ? (boardSpots[row][col] == 'x') ? 'spot xtic' : 'spot otic' : 'spot'" @click="playerTurn ? addO($event, row, col) : addX($event, row, col)"></div>
+                    <div v-for="col in boardSize"
+                        :class="(boardSpots[row][col] != 0) ? (boardSpots[row][col] == 'x') ? 'spot xtic' : 'spot otic' : 'spot'"
+                        @click="playerTurn ? addO($event, row, col) : addX($event, row, col)">
+                    </div>
                 </div>
             </div>
         </div>

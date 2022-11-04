@@ -30,8 +30,6 @@ export default {
                 this.players = roomData['players'] 
                 this.board = roomData['board'] 
 
-                console.log(`Firebase query: ${this.players} ${this.board}`)
-
                 if (this.players.length <= 1) {
                     this.isReady = false
                 } else {
@@ -51,20 +49,31 @@ export default {
 
         onChildChanged(roomRef, (snapshot) => {
             this.isReady = true
+            this.players = snapshot.val();
+
+            let playersCopy = Array.from(this.players)
+            console.log(playersCopy)
+            const playerX = playersCopy[Math.floor(Math.random() * playersCopy.length)]
+            playersCopy.splice(playersCopy.indexOf(playerX), 1)
+            const playerO = playersCopy[0]
+            console.log(`PlayerX :${playerX}`)
+            console.log(`PlayerO :${playerO}`)
+
+            set(ref(db, `rooms/${this.roomKey}`), {
+                    id: this.roomKey,
+                    players: this.players,
+                    board: [
+                        [0, 0, 0],
+                        [0, 0, 0],
+                        [0, 0, 0]
+                    ],
+                    playerX: playerX,
+                    playerO: playerO
+                })
 
             this.$router.push({
                 name: 'board'
-            })
-            
-            let updatedRoomData = snapshot.val()
-            console.log(snapshot.val())
-            this.players = snapshot.val();
-
-            // this.players = updatedRoomData['players'];
-            // this.board = updatedRoomData['board'];
-
-            console.table(this.players)
-            console.table(this.board)
+            })            
         }, {
             onlyOnce: true
         })
