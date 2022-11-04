@@ -14,7 +14,7 @@ export default {
 			promptOpen: false,
 		}
 	},
-	
+
 	methods: {
 		togglePrompt() {
 			this.promptOpen = !this.promptOpen

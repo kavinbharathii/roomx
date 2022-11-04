@@ -33,7 +33,9 @@ export default {
             let updatedData = {
                 id: this.roomKey,
                 players: this.boardPlayers,
-                board: this.boardSpots
+                board: this.boardSpots,
+                playerX: this.playerX,
+                playerO: this.playerO
             }
 
             update(ref(db, `rooms/${this.roomKey}`), updatedData)
@@ -53,7 +55,9 @@ export default {
             let updatedData = {
                 id: this.roomKey,
                 players: this.boardPlayers,
-                board: this.boardSpots
+                board: this.boardSpots,
+                playerX: this.playerX,
+                playerO: this.playerO
             }
 
             update(ref(db, `rooms/${this.roomKey}`), updatedData)

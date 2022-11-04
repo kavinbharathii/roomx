@@ -7,6 +7,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+::selection {
+    background-color: #9462f9;
+    color: white;
+}
+
 body,
 main {
     display: flex;
