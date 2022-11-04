@@ -98,7 +98,7 @@ export default {
         <div class="app">
             <div id="board">
                 <div v-for="row in boardSize" class="row">
-                    <div v-for="col in boardSize" class="spot" @click="playerTurn ? addO($event, row, col) : addX($event, row, col)"></div>
+                    <div v-for="col in boardSize" :class="(boardSpots[row][col] != 0) ? (boardSpots[row][col] == 'x') ? 'spot xtic' : 'spot otic' : 'spot'" @click="playerTurn ? addO($event, row, col) : addX($event, row, col)"></div>
                 </div>
             </div>
         </div>
