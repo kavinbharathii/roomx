@@ -137,6 +137,18 @@ main {
     transform: scale(1.05) rotate(-45deg);
 }
 
+#roomKey {
+    position: absolute;
+    width: fit-content;
+    color: rgb(227, 201, 255);
+    z-index: 3;
+    top: 0;
+    right: 2em;
+    margin: 1.5rem;
+    color: #9462f9;
+    font-size: 2em;
+}
+
 @media only screen and (max-width: 946px) {
     #createroom, 
     #joinroom {

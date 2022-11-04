@@ -95,6 +95,7 @@ export default {
 <template>
     <div class="container">
         <img id="chattr" src="../assets/chattr.png" alt="" @click="goHome"/>
+        <p id="roomKey">{{ roomKey }}</p>
         <div class="app">
             <div id="board">
                 <div v-for="row in boardSize" class="row">

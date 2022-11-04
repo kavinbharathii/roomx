@@ -59,6 +59,7 @@ export default {
             let updatedRoomData = snapshot.val()
             console.log(snapshot.val())
             this.players = snapshot.val();
+
             // this.players = updatedRoomData['players'];
             // this.board = updatedRoomData['board'];
 

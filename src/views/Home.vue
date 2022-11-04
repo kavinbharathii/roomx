@@ -38,15 +38,19 @@ export default {
 						let playerData = roomsData['players']
 						let boardData = roomsData['board']
 
+						// If the room is already full
 						if (playerData.length >= 2) {
 							let playerAllowed = false
-							for (let player of playerData) {
+
+							// go thru all the players and check if they are already registered
+							for (let player of playerData) {       
 								console.log(player)
 								if (player == this.playerId) {
 									playerAllowed = true
 								}
 							}
 							
+							// if the player is already registered allow them
 							if (playerAllowed) {
 								this.$router.push({
 									name: 'room',
@@ -54,9 +58,12 @@ export default {
 										roomKey: this.roomKey
 									}
 								})
+							// else send that man to the backrooms!
 							} else {
 								"Room already full"
 							}
+
+						// else we are dealing with a new player
 						} else {
 
 							let newPlayer = true
@@ -66,6 +73,7 @@ export default {
 								}
 							}
 
+							// If it is a new player, update the database and send him in
 							if (newPlayer) {
 								// concatenate the new player to the players array
 								let newPlayersArray = playerData.concat([this.playerId])
@@ -85,10 +93,9 @@ export default {
 										roomKey: this.roomKey
 									}
 								})
-							} else {
-								// console.log("You are already in the room")
-								// alert("You are already in the room")
 
+							// Or else just send him in since he is already present, (NOT A NEWPLAYER)
+							} else {
 								this.$router.push({
 									name: 'room',
 									params: {
@@ -97,6 +104,8 @@ export default {
 								})
 							}
 						}
+
+					// Or there is no room that exists with that keyCode
 					} else {
 						console.log("No such room")
 					}
@@ -109,6 +118,7 @@ export default {
 			this.promptOpen = !this.promptOpen
 		},
 
+		// Login the user
 		async login() {
 			const auth = getAuth();
 			signInAnonymously(auth)
@@ -133,6 +143,7 @@ export default {
 			});
 		},
 
+		// Generate random keys for the room generation
 		generateRandomKey(idLength) {
 			let roomId = '';
 			const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
