@@ -35,7 +35,8 @@ export default {
 				get(child(dbRef, `rooms/${this.roomKey}`)).then((snapshot) => {
 					if (snapshot.exists()) {
 						let roomsData = snapshot.val()
-						let playerData = roomsData.players
+						let playerData = roomsData['players']
+						let boardData = roomsData['board']
 
 						if (playerData.length >= 2) {
 							alert("Room already full")
@@ -43,7 +44,6 @@ export default {
 
 							let newPlayer = true
 							for (let i = 0; i < playerData.length; i++) {
-								console.log(`Player data looping: ${playerData[i]}`)
 								if (playerData[i] == this.playerId) {
 									newPlayer = false
 								}
@@ -54,7 +54,8 @@ export default {
 								let newPlayersArray = playerData.concat([this.playerId])
 								let updatedData = {
 									id: roomsData.id,
-									players: newPlayersArray
+									players: newPlayersArray,
+									board: boardData
 								}
 
 								// ----------------- update data ------------------ //
@@ -124,7 +125,12 @@ export default {
 
 			set(ref(db, `rooms/${this.roomKey}`), {
 				id: this.roomKey,
-				players: [this.playerId]
+				players: [this.playerId],
+				board: [
+					[0, 0, 0],
+					[0, 0, 0],
+					[0, 0, 0]
+				]
 			})
 
 			this.$router.push({ 

@@ -1,19 +1,15 @@
 
 <script>
-import { ref, get, child, onChildChanged } from "firebase/database"
+import { ref, get, child, onChildChanged, update, set } from "firebase/database"
 import { db } from '../main'
-import Board from "../components/Board.vue"
 
 export default {
-    name: 'Room',
-    components: {
-        Board
-    },
     data() {
         return {
             roomKey: this.$route.params.roomKey,
             players: [],
-            isReady: false
+            isReady: false,
+            board: []
         }
     },
 
@@ -31,13 +27,19 @@ export default {
         get(child(dbRef, `rooms/${this.roomKey}`)).then((snapshot) => {
             if (snapshot.exists()) {
                 let roomData = snapshot.val()
-                this.players = roomData.players
-                console.log(`Players: ${this.players}`)
+                this.players = roomData['players'] 
+                this.board = roomData['board'] 
 
-                if (this.players.length == 1) {
+                console.log(`Firebase query: ${this.players} ${this.board}`)
+
+                if (this.players.length <= 1) {
                     this.isReady = false
                 } else {
                     this.isReady = true
+
+                    this.$router.push({
+                        name: 'board'
+                    })
                 }
             } else {
                 this.$router.push({ name: 'home' })
@@ -48,23 +50,31 @@ export default {
         })
 
         onChildChanged(roomRef, (snapshot) => {
-            console.log(`Snapshot change: ${snapshot.val()}`)
             this.isReady = true
-            this.players = snapshot.val()
+            
+            let updatedRoomData = snapshot.val()
+            console.log(snapshot.val())
+            this.players = snapshot.val();
+            // this.players = updatedRoomData['players'];
+            // this.board = updatedRoomData['board'];
+
+            console.table(this.players)
+            console.table(this.board)
+        }, {
+            onlyOnce: true
         })
     }
 }
 
 </script>
 
+
 <template>
     <div class="container">
         <img id="chattr" src="../assets/chattr.png" alt="" @click="goHome"/>
         <div class="app">
             <h1>Room code: <span class="accent">{{ this.roomKey }}</span></h1>
-            <p v-if="isReady">
-                <Board />
-            </p>
+            <p v-if="isReady">Routing to Board</p>
             <p v-else>Waiting...</p>
         </div>
     </div>
