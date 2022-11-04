@@ -1,0 +1,47 @@
+[33mcommit 767b07792d4919de806405c716352552e381e966[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: cipherdot <r.m.kavinbharathi@gmail.com>
+Date:   Fri Nov 4 12:29:22 2022 +0530
+
+    room: redirect after child change
+
+[33mcommit 5da1e10c000da9cc0004a3177e2996d5279e42a7[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: cipherdot <r.m.kavinbharathi@gmail.com>
+Date:   Fri Nov 4 12:25:22 2022 +0530
+
+    xo: dynamic class for x and o
+
+[33mcommit f3eeb1b73583b3d51ddb94390d071e2c4ef66737[m
+Author: cipherdot <r.m.kavinbharathi@gmail.com>
+Date:   Fri Nov 4 12:08:32 2022 +0530
+
+    xo: send/recieve data working
+
+[33mcommit 2359544aa8ed8616baad4e5ac80dbe0264b6cd12[m
+Author: cipherdot <r.m.kavinbharathi@gmail.com>
+Date:   Wed Nov 2 13:47:19 2022 +0530
+
+    Board: X O logic
+
+[33mcommit 23eddf4128df3d3fed79469246c51a54529d9dd6[m
+Author: cipherdot <r.m.kavinbharathi@gmail.com>
+Date:   Sun Oct 30 13:33:16 2022 +0530
+
+    home: roomkey(uppercase)
+
+[33mcommit 366f13e180d23927752a7cd0902f3ef412ec1d2f[m
+Author: cipherdot <r.m.kavinbharathi@gmail.com>
+Date:   Sun Oct 30 13:22:48 2022 +0530
+
+    room: roomx icon(goHome)
+
+[33mcommit 2a40a22e2a087ecc2aee4dacc9fc49c8e3fdbbfa[m
+Author: cipherdot <r.m.kavinbharathi@gmail.com>
+Date:   Sun Oct 30 12:45:53 2022 +0530
+
+    css: mobile view
+
+[33mcommit 04d51da473d4ab66fb4b3b962a6544ed0f411774[m
+Author: cipherdot <r.m.kavinbharathi@gmail.com>
+Date:   Sun Oct 30 12:29:27 2022 +0530
+
+    room: room max(2)
