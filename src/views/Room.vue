@@ -51,6 +51,10 @@ export default {
 
         onChildChanged(roomRef, (snapshot) => {
             this.isReady = true
+
+            this.$router.push({
+                name: 'board'
+            })
             
             let updatedRoomData = snapshot.val()
             console.log(snapshot.val())
