@@ -39,7 +39,24 @@ export default {
 						let boardData = roomsData['board']
 
 						if (playerData.length >= 2) {
-							alert("Room already full")
+							let playerAllowed = false
+							for (let player of playerData) {
+								console.log(player)
+								if (player == this.playerId) {
+									playerAllowed = true
+								}
+							}
+							
+							if (playerAllowed) {
+								this.$router.push({
+									name: 'room',
+									params: {
+										roomKey: this.roomKey
+									}
+								})
+							} else {
+								"Room already full"
+							}
 						} else {
 
 							let newPlayer = true
@@ -69,8 +86,15 @@ export default {
 									}
 								})
 							} else {
-								console.log("You are already in the room")
-								alert("You are already in the room")
+								// console.log("You are already in the room")
+								// alert("You are already in the room")
+
+								this.$router.push({
+									name: 'room',
+									params: {
+										roomKey: this.roomKey
+									}
+								})
 							}
 						}
 					} else {
