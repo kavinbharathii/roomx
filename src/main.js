@@ -5,14 +5,14 @@ import { initializeApp } from "firebase/app"
 import { getDatabase } from "firebase/database"
 
 const firebaseConfig = {
-    apiKey:  "AIzaSyB5EOOKvJP353XPH2CQhDNzlR7j5_TwBts",
-    authDomain: "roomx-a2287.firebaseapp.com",
-    databaseURL: "https://roomx-a2287-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "roomx-a2287",
-    storageBucket: "roomx-a2287.appspot.com",
-    messagingSenderId: "931511452961",
-    appId: "1:931511452961:web:ab9c2ba571397be124aa60",
-    databaseURL: "https://roomx-a2287-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    apiKey:  ""**********************************",
+    authDomain: ""**********************************",
+    databaseURL: ""**********************************",
+    projectId: ""**********************************",
+    storageBucket: ""**********************************",
+    messagingSenderId: ""**********************************",
+    appId: ""**********************************",
+    databaseURL: "**********************************"
 }
 
 import './assets/main.css'
